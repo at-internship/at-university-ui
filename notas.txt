@@ -1,0 +1,12 @@
+***Dependencies instaled***
+
+npm i express connect-flash bcryptjs express-handlebars express-session method-override passport passport-local morgan axios 
+
+***Dev Dependencies instaled***
+npm install dotenv nodemon handlebars npm-check-updates -D
+
+***Directories***
+mkdir config controllers helpers models public routes services views
+
+***Files***
+touch index.js server.js
