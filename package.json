@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/at-internship/at-university-ui.git"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
