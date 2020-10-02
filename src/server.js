@@ -12,6 +12,7 @@ app.set("port", process.env.PORT || 4040);
 // Global Middlewares
 
 // Routes
+app.use(require("./routes/test.routes"));
 app.use(require("./routes/course.routes"));
 
 // Static files
