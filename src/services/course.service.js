@@ -1,24 +1,16 @@
 const axios = require("axios");
-const config = require("../config/config");
+const config = require("../config");
 
-module.exports = {
-  getAllCourses: () =>
-    axios({
+const courseService = {};
+
+courseService.getAllCourses = () => {
+    return axios({
       method: "GET",
-      url: config.AT_UNIVERSITY_API_HOST + `/at-university-api/api/v1/course`,
+      url: config.AT_UNIVERSITY_API_HOST + `/course`,
       headers: {
         "content-type": "application/json",
       },
-    })
-      .then(function (data) {
-        console.log("Success " + JSON.stringify(data));
-        console.log(
-          "getAllCourses: " +
-            config.AT_UNIVERSITY_API_HOST +
-            `/at-university-api/api/v1/course`
-        );
-      })
-      .catch(function (error) {
-        console.log("Error: " + error.message);
-      }),
+    });  
 };
+
+module.exports = courseService;
