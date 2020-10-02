@@ -12,7 +12,7 @@ app.set("port", process.env.PORT || 4040);
 // Global Middlewares
 
 // Routes
-app.use("/at-university-api/api/v1", require("./routes/course.routes"));
+app.use(require("./routes/course.routes"));
 
 // Static files
 
