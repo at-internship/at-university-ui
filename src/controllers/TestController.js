@@ -1,10 +1,10 @@
 const { getAllCourses } = require("../services/course.service");
 
 /*This is a test controller for course service*/
-const apiCtrl = {};
+const testCtrl = {};
 
 // Get All Courses example
-apiCtrl.getAllCourses = async (req, res) => {
+testCtrl.getAllCourses = async (req, res) => {
   let courses = await getAllCourses().then(function (response) {
     res.json({ courses: response.data });
   }).catch(function (error) {
@@ -13,4 +13,4 @@ apiCtrl.getAllCourses = async (req, res) => {
   res.json({ error_message: 'There was an unexpected error' });
 };
 
-module.exports = apiCtrl;
+module.exports = testCtrl;
