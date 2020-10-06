@@ -4,9 +4,6 @@ const { renderCourses } = require ('../controllers/dashboard.controller');
 
 /* Routes */
 
-//Get All Courses 
-router.get("/course", getAllCourses);
-
 //Get Dashboard 
 router.get("/dashboard", renderCourses);
 
