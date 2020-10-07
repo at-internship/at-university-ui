@@ -6,7 +6,12 @@ const courseService = {};
 courseService.getAllCourses = () => {
   return axios({
     method: "GET",
-    url: AT_UNIVERSITY_SERVICE_URI + `/course`
+    url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
+    headers: {
+      "content-type": "application/json",
+    },
+  }).catch(function (error) {
+    console.log("Error: " + error.message);
   });
 };
 
