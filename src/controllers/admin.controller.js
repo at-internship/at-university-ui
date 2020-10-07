@@ -5,7 +5,7 @@ adminCtrl.renderAdminDash = (req, res) => {
 }
 
 adminCtrl.renderCourseForm = (req, res) => {
-    res.send('admin/test')
+    res.send('admin/new-course')
 }
 
 module.exports = adminCtrl;
