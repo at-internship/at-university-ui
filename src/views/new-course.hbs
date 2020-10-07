@@ -2,6 +2,12 @@
   <div class="card text-center">
     <div class="card-header">
       <h3>New Course</h3>
+      <!-- BOOTSTRAP - BOOTSWATCH THEME - COSMOS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/materia/bootstrap.min.css"> 
+        <!-- FONT AWESOME -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     </div>
     <div class="card-body">
       <form class="form-horizontal" action="/course" method="POST">
@@ -22,10 +28,10 @@
         </div>
         <div class="form-group">
             <div class="checkbox">
-                <label><input type="checkbox-inline" name="status" value="1" placeholder="Status">Active</label>
+                <label><input type="radio" name="status" value="1" placeholder="Status">Active</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox-inline" name="status" value="0" placeholder="Status">Inactive</label>
+                <label><input type="radio" name="status" value="0" placeholder="Status">Inactive</label>
             </div>
         </div>
 
