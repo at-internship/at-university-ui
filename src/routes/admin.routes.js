@@ -4,6 +4,6 @@ const { renderAdminDash, renderCourseForm } = require('../controllers/admin.cont
 
 // Admin dashboard
 router.get('/admin', renderAdminDash)
-router.get('/course', renderCourseForm)
+router.get('/admin/course/add', renderCourseForm)
 
 module.exports = router
