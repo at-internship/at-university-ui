@@ -1,12 +1,12 @@
 const axios = require("axios");
-const config = require("../config");
-
+const AT_UNIVERSITY_SERVICE_URI = process.env.AT_UNIVERSITY_SERVICE_URI;
+console.log("AT_UNIVERSITY_SERVICE_URI:" + AT_UNIVERSITY_SERVICE_URI);
 const courseService = {};
 
 courseService.getAllCourses = () => {
   return axios({
     method: "GET",
-    url: config.AT_UNIVERSITY_SERVICE_URI + `/course`
+    url: AT_UNIVERSITY_SERVICE_URI + `/course`
   });
 };
 
