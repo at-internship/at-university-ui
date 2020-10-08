@@ -1,19 +1,29 @@
 const axios = require("axios");
-const config = require("../config");
-
+const AT_UNIVERSITY_SERVICE_URI = process.env.AT_UNIVERSITY_SERVICE_URI;
+console.log("AT_UNIVERSITY_SERVICE_URI:" + AT_UNIVERSITY_SERVICE_URI);
 const courseService = {};
 
 courseService.getAllCourses = () => {
   return axios({
     method: "GET",
-    url: config.AT_UNIVERSITY_API_HOST + `/course`,
+    url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
+    headers: {
+      "content-type": "application/json",
+    },
+  }).catch(function (error) {
+    console.log("Error: " + error.message);
   });
 };
 
-courseService.addAllCourses = () => {
+courseService.addCourse = () => {
   return axios({
     method: "POST",
-    url: config.AT_UNIVERSITY_API_HOST + `/course`,
+    url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
+    headers: {
+      "content-type": "application/json",
+    },
+  }).catch(function (error) {
+    console.log("Error: " + error.message);
   });
 };
 
