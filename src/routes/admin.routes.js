@@ -1,9 +1,14 @@
 const router = require('express').Router();
 
-const { renderAdminDash, renderCourseForm } = require('../controllers/admin.controller');
+const { renderAdminDash, renderCourseForm, createNewCourse } = require('../controllers/admin.controller');
 
 // Admin dashboard
 router.get('/admin', renderAdminDash)
-router.get('/admin/course/add', renderCourseForm)
 
-module.exports = router
+//Admin new course
+router.get('/admin/course/new-course', renderCourseForm)
+
+router.post('admin/course/new-course', createNewCourse);
+
+
+module.exports = router;
