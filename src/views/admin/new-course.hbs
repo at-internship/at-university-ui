@@ -12,25 +12,24 @@
       <form class="form-horizontal" action="/course" method="POST">
         <div class="form-group">
           <label for="category">Select a category:</label>
-          <select class="form-control" name="category" id="category">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+          <select required class="form-control" name="category" id="category">
+            <option value="JAVA">Java</option>
+            <option value="PEGA">Pega</option>
+            <option value="JS">Javascript</option>
           </select>
         </div>
         <div class="form-group">
-          <input type="text" name="title" class="form-control" placeholder="Title" autofocus />
+          <input type="text" name="title" required class="form-control" placeholder="Title" autofocus />
         </div>
         <div class="form-group">
-          <textarea name="description" class="form-control" placeholder="Description"></textarea>
+          <textarea name="description" required class="form-control" placeholder="Description"></textarea>
         </div>
         <div class="form-group">
-          <input type="text" name="img" class="form-control" placeholder="Image URL" />
+          <input required type="text" name="img" class="form-control" placeholder="Image URL" />
         </div>
         <div class="form-group">
           <div class="checkbox">
-            <label><input type="radio" name="status" value="1" placeholder="Status">Active</label>
+            <label><input required type="radio" name="status" value="1" placeholder="Status">Active</label>
           </div>
           <div class="checkbox">
             <label><input type="radio" name="status" value="0" placeholder="Status">Inactive</label>
