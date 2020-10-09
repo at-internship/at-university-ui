@@ -2,6 +2,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const methodOverride = require("method-override");
 // Initializations
 const app = express();
 
@@ -17,12 +18,14 @@ app.engine(
         extname: ".hbs",  }));
 app.set("view engine", ".hbs");
 // Middlewares
-
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 // Global Middlewares
 
 // Routes
 app.use(require("./routes/test.routes"));
 app.use(require("./routes/course.routes"));
+app.use(require("./routes/admin.routes"));
 
 // Static files
 
