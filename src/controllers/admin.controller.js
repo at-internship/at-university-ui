@@ -19,7 +19,6 @@ adminCtrl.createNewCourse = async (req, res) => {
         img,
         status: parseInt(status)
     };
-    console.log(request);
     await addCourse(request).then((result) => {
         console.log(result);
         courses = result;
