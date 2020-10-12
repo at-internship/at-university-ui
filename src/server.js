@@ -3,30 +3,44 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const methodOverride = require("method-override");
+
 // Initializations
 const app = express();
 
 // Settings
 app.set("port", process.env.PORT || 4000);
 app.set("views", path.join(__dirname, "views"));
-app.engine(  
-    ".hbs",  
-    exphbs({    
-        defaultLayout: "main",    
-        layoutsDir: path.join(app.get("views"), "layouts"),    
-        partialsDir: path.join(app.get("views"), "partials"),    
-        extname: ".hbs",  }));
+app.engine(
+    ".hbs",
+    exphbs({
+        defaultLayout: "main",
+        layoutsDir: path.join(app.get("views"), "layouts"),
+        partialsDir: path.join(app.get("views"), "partials"),
+        extname: ".hbs",
+    })
+);
 app.set("view engine", ".hbs");
+
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-// Global Middlewares
 
-// Routes
-app.use(require("./routes/test.routes"));
-app.use(require("./routes/course.routes"));
-app.use(require("./routes/admin.routes"));
+// Global Middlewares
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("success_msg");
+    res.locals.error_msg = req.flash("error_msg");
+    res.locals.error = req.flash("error");
+    res.locals.user = req.user || null;
+    next();
+});
+
+// AT-UNIVERSITY Routes - Admin
+app.use("/admin", require("./routes/admin.routes"));
+
+// AT-UNIVERSITY Routes - General
+app.use("/", require("./routes/at-university.routes"));
 
 // Static files
+app.use(express.static(path.join(__dirname, "public")));
 
 module.exports = app;
