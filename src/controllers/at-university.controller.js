@@ -1,6 +1,6 @@
 const { getAllCourses } = require("../services/course.service");
 
-const dashboardCtrl = {};
+const atUniversityCtrl = {};
 // Get All Courses dashboard
 
 atUniversityCtrl.renderDashboard = async (req, res) => {
