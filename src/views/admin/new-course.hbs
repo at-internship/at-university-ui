@@ -1,0 +1,47 @@
+<div class="col-md-4 my-auto">
+  <div class="card text-center">
+    <div class="card-header">
+      <h3>New Course</h3>
+      <!-- BOOTSTRAP - BOOTSWATCH THEME - COSMOS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/materia/bootstrap.min.css">
+      <!-- FONT AWESOME -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </div>
+    <div class="card-body">
+      <form class="form-horizontal" action="/course" method="POST">
+        <div class="form-group">
+          <label for="category">Select a category:</label>
+          <select required class="form-control" name="category" id="category">
+            <option value="JAVA">Java</option>
+            <option value="PEGA">Pega</option>
+            <option value="JS">Javascript</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="text" name="title" required class="form-control" placeholder="Title" autofocus />
+        </div>
+        <div class="form-group">
+          <textarea name="description" required class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <input required type="text" name="img" class="form-control" placeholder="Image URL" />
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <label><input required type="radio" name="status" value="1" placeholder="Status">Active</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="radio" name="status" value="0" placeholder="Status">Inactive</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
