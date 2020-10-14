@@ -1,5 +1,5 @@
 body {
-    background: whitesmoke;
+    background: rgb(235, 219, 219);
     /* fallback for old browsers */
 }
 
@@ -42,72 +42,6 @@ h1.title_section {
     }
 }
 
-.logo {
-    width: 30%;
-}
-
-.welcome {
-    width: 70%;
-}
-
-.banners {
-    width: 85%;
-}
-
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
-}
-
-.calendar_img {
-    width: 80%;
-}
-
-
-/* HOME */
-
-#home.scroll-wrapper-div {
-    overflow-y: scroll;
-    max-height: 800px;
-    width: auto;
-    max-width: 1200px;
-    text-align: center;
-}
-
-.layout--radius {
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-
-
-/* reports */
-
-.reports_img {
-    width: 80%;
-}
-
-h2.title-reports {
-    font-weight: 400;
-}
-
-#notification-icon {
-    position: relative;
-}
-
-#notification-number {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #f00;
-    width: 20px;
-    height: 20px;
-    color: #fff;
-    border-radius: 20px -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    text-align: center;
-    border: 2px solid #fff;
-}
-
 a.link-user {
     color: #373a3c;
 }
@@ -115,11 +49,6 @@ a.link-user {
 a.link-user:hover {
     color: #373a3c;
     text-decoration: none;
-}
-
-.amount {
-    color: gray;
-    font-size: 24px;
 }
 
 .form-control-admin-service {
@@ -203,50 +132,4 @@ a.link-user:hover {
     overflow-y: scroll;
     max-height: 600px;
     width: auto;
-}
-
-#notes.scroll-wrapper-div {
-    overflow-y: scroll;
-    max-height: 200px;
-    width: auto;
-}
-
-#invoicesList.scroll-wrapper-div {
-    overflow-y: scroll;
-    max-height: 200px;
-    width: auto;
-}
-
-.sensitive {
-    font-weight: bold;
-}
-
-.map-container {
-    overflow: auto;
-    position: relative;
-    max-height: 450px;
-}
-
-.map-container iframe {
-    left: 0;
-    top: 0;
-    height: 80%;
-    width: 80%;
-    position: relative;
-    max-height: 450px;
-}
-
-.embed-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-}
-
-.embed-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
