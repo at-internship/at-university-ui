@@ -1,0 +1,1 @@
+/* Archivo en blanco, se valido con el arquitecto */
