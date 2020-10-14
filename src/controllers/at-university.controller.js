@@ -1,16 +1,16 @@
 const { getAllCourses } = require("../services/course.service");
 
-const dashboardCtrl = {};
+const atUniversityCtrl = {};
 // Get All Courses dashboard
 
-dashboardCtrl.renderCourses = async (req, res) => {
+atUniversityCtrl.renderDashboard = async (req, res) => {
 	let courses;
 	await getAllCourses().then((result) => {
 		courses = result.data;
 	});
-	res.render("dashboard/all-courses", { courses });
+	res.render("dashboard/dashboard", { courses });
 };
 
 
 
-module.exports = dashboardCtrl;
+module.exports = atUniversityCtrl;
