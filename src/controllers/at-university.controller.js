@@ -13,4 +13,4 @@ atUniversityCtrl.renderDashboard = async (req, res) => {
 
 
 
-module.exports = dashboardCtrl;
+module.exports = atUniversityCtrl;
