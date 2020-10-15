@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { getAllCourses } = require ('../controllers/admin.controller'); 
+
 const { renderCourses } = require ('../controllers/at-university.controller');
 
 /* Routes */
 
 //Get Dashboard 
-router.get("/dashboard", renderCourses);
+router.get("/dashboard", renderDashboard);
 
 module.exports = router;
