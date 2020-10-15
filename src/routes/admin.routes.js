@@ -5,7 +5,6 @@ const path = require('path');
 // Admin Controller
 const {
     renderCourseList,
-    renderCourseList,
     renderAddCourseForm,
     addCourse,
     renderEditCourseForm,
