@@ -1,5 +1,6 @@
 const { addCourse } = require("../services/course.service")
 const { getAllCourses } = require("../services/course.service");
+
 const adminCtrl = {};
 
 adminCtrl.renderIndexAdmin = (req, res) => {
