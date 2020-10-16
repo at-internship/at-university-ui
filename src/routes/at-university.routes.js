@@ -4,7 +4,7 @@ const { renderCourses } = require ('../controllers/at-university.controller');
 
 /* Routes */
 
-//Get Dashboard 
+// AT-UNIVERSITY-UI - Dashboard
 router.get("/dashboard", renderDashboard);
 
 module.exports = router;

@@ -23,11 +23,11 @@ const {
 // ============= Sub Routes =============
 
 // AT-UNIVERSITY-UI - Admin - Index
-router.get("/admin", renderIndexAdmin);
+router.get("/", renderIndexAdmin);
 
 
 // AT-UNIVERSITY-UI - Admin - Users - Render Course List
-router.get("/admin/course", renderCourseList);
+router.get("/course", renderCourseList);
 
 
 // AT-UNIVERSITY-UI - Admin - Users - Render Add Course
