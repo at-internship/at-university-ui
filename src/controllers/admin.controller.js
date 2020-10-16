@@ -1,5 +1,3 @@
-const { addCourse } = require("../services/course.service");
-
 // MICROSERVICE - HEROKU - UNIVERSITY
 const universityServiceAPI = require("../services/at-university-api.service");
 
@@ -23,7 +21,7 @@ adminCtrl.addCourse = async (req, res) => {
         img,
         status: parseInt(status)
     };
-    await addCourse(request).then((result) => {
+    await universityServiceAPI.addCourse(request).then((result) => {
         console.log(result);
         courses = result;
     });
