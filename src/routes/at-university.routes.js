@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { renderCourses } = require ('../controllers/at-university.controller');
+const { renderDashboard } = require ('../controllers/at-university.controller');
 
 /* Routes */
 
