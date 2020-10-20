@@ -1,11 +1,11 @@
-const { getAllCourses } = require("../services/course.service");
+const universityServiceAPI = require("../services/at-university-api.service");
 
 const atUniversityCtrl = {};
 // Get All Courses dashboard
 
 atUniversityCtrl.renderDashboard = async (req, res) => {
 	let courses;
-	await getAllCourses().then((result) => {
+	await universityServiceAPI.getAllCourses().then((result) => {
 		courses = result.data;
 	});
 	res.render("dashboard/dashboard", { courses });

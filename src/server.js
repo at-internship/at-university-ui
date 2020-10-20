@@ -2,7 +2,9 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const flash = require("connect-flash");
 const methodOverride = require("method-override");
+var session = require('express-session');
 
 // Initializations
 const app = express();
@@ -24,6 +26,11 @@ app.set("view engine", ".hbs");
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(session({ cookie: { maxAge: 60000 }, 
+    secret: 'secret',
+    resave: false, 
+    saveUninitialized: false}));
+app.use(flash());
 
 // Global Middlewares
 app.use((req, res, next) => {
