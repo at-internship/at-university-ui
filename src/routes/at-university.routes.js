@@ -1,10 +1,14 @@
 const router = require("express").Router();
 
-const { renderDashboard } = require ('../controllers/at-university.controller');
+// AT-UNIVERSITY - Controller
+const { dashboard } = require('../controllers/at-university.controller');
 
-/* Routes */
+// ============= Sub Routes =============
 
-// AT-UNIVERSITY-UI - Dashboard
-router.get("/dashboard", renderDashboard);
+// AT-UNIVERSITY - Dashboard
+router.get("/", dashboard);
+
+// AT-UNIVERSITY - Dashboard
+router.get("/dashboard", dashboard);
 
 module.exports = router;
