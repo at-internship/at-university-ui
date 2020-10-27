@@ -2,7 +2,7 @@ const atUniversityCtrl = {};
 
 const universityServiceAPI = require("../services/at-university-api.service");
 
-// AT-RESOURCES - Index/Dashboard
+// AT-UINERSITY - Index/Dashboard
 atUniversityCtrl.dashboard = async(req, res) => {
     try {
         const responseCourses = await universityServiceAPI.getAllCourses();
@@ -16,19 +16,19 @@ atUniversityCtrl.dashboard = async(req, res) => {
     }
 };
 
-// AT-RESOURCES - Career
+// AT-UINERSITY - Career
 atUniversityCtrl.careerDetails = async(req, res) => {
     console.log("--> atUniversityCtrl.career");
     res.render("career/details");
 };
 
-// AT-RESOURCES - Course
+// AT-UINERSITY - Course
 atUniversityCtrl.courseDetails = async(req, res) => {
     console.log("--> atUniversityCtrl.course");
     res.render("course/details");
 };
 
-// Start Course
+// AT-UINERSITY - Start Course
 atUniversityCtrl.startCourse = (req, res) => {
     console.log("--> atUniversityCtrl.startCourse");
     res.render("course/start");
