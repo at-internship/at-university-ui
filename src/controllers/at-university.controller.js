@@ -34,13 +34,4 @@ atUniversityCtrl.startCourse = (req, res) => {
     res.render("course/start");
 };
 
-// Edit Course
-atUniversityCtrl.renderEditCourseForm = (req, res) => {
-
-};
-
-atUniversityCtrl.updateCourse = (req, res) => {
-
-};
-
 module.exports = atUniversityCtrl;
