@@ -5,7 +5,9 @@ const {
     dashboard,
     careerDetails,
     courseDetails,
-    startCourse
+    startCourse,
+    renderEditCourseForm,
+    updateCourse
 } = require('../controllers/at-university.controller');
 
 // ============= Sub Routes =============
@@ -24,5 +26,10 @@ router.get("/course/details", courseDetails);
 
 // AT-UNIVERSITY - Start Course
 router.get("/course/start", startCourse);
+
+// ============= Edit Course =============
+
+router.get('/admin/course/edit/:id', renderEditCourseForm);
+router.route('/admin/course/edit/:id', updateCourse)
 
 module.exports = router;
