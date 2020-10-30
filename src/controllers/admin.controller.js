@@ -47,15 +47,22 @@ adminCtrl.addCourse = async(req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Render Edit Course Form
-adminCtrl.renderEditCourseForm = (req, res) => {
+adminCtrl.renderEditCourseForm = async (req, res) => {
     console.log("--> adminCtrl.renderEditCourseForm");
-    res.render("admin/course/edit-course");
+
+    const course = await Course.findById(req.params.id);
+    res.render("admin/course/edit-course", { Course });
 };
 
 // AT-UNIVERSITY - Admin - Update Course
-adminCtrl.updateCourse = (req, res) => {
+adminCtrl.updateCourse = async(req, res) => {
     // Redirect
     req.flash("success_msg", "Course Updated Successfully");
+
+    const { category, title, description, img } = req.body;
+    await Course.findByIdAndUpdate(req.params.id, { category, title, description, img })
+    req.flash('success_msg', 'Note Update Successfully')
+    res.redirect('/notes');
     res.redirect("/admin/course");
 };
 
