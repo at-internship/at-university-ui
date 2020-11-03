@@ -36,4 +36,16 @@ courseService.addCourse = (data) => {
     });
 };
 
+courseService.editCourse = (data) => {
+    return axios({
+        method: "PUT",
+        url: AT_UNIVERSITY_SERVICE_URI + `/v1/course` + data.id,
+        data: data,
+        headers: {
+            "content-type": "application/json",
+        },
+    }).catch(function(error) {
+        console.log("Error: " + error.message);
+    });
+};
 module.exports = courseService;

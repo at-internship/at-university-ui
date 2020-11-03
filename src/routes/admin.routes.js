@@ -26,10 +26,10 @@ router.get("/course/add", renderAddCourseForm);
 router.post("/course/add", addCourse);
 
 // AT-UNIVERSITY-UI - Admin - Course - Render Edit Curse
-router.get("/course/edit/:id", renderEditCourseForm);
+router.get("/admin/course/edit/:id", renderEditCourseForm);
 
 // AT-UNIVERSITY-UI - Admin - Course - Edit User
-router.put("/course/edit/:id", updateCourse);
+router.put("/admin/course/edit/:id", updateCourse);
 
 // AT-UNIVERSITY-UI - Admin - Courses - Delete User
 router.get("/course/delete/:id", deleteCourse);
