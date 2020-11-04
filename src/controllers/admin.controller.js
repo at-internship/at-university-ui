@@ -49,16 +49,12 @@ adminCtrl.addCourse = async(req, res) => {
 // AT-UNIVERSITY - Admin - Render Edit Course Form
 adminCtrl.renderEditCourseForm = async (req, res) => {
     console.log("--> adminCtrl.renderEditCourseForm");
-
-    const course = await Course.findById(req.params.id).lean();
     res.render('admin/course/edit-course', {course})
 };
 
 // AT-UNIVERSITY - Admin - Update Course
 adminCtrl.updateCourse = async(req, res) => {
     // Redirect
-    const { title, description, status, category, img } = req.body; 
-    await Course.findByIdAndUpdate(req.params.id, { title, description, status, category, img });
     req.flash("success_msg", "Course Updated Successfully");
     res.redirect("/admin/course");
 };
@@ -66,7 +62,6 @@ adminCtrl.updateCourse = async(req, res) => {
 // AT-UNIVERSITY - Admin - Delete Course
 adminCtrl.deleteCourse = (req, res) => {
     const errors = [];
-
     // Redirect
     req.flash("success_msg", "Course Deleted Successfully");
     res.redirect("/admin/course");
