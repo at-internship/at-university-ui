@@ -12,28 +12,32 @@ console.log("AT_UNIVERSITY_SERVICE_URI: " + AT_UNIVERSITY_SERVICE_URI);
 const courseService = {};
 
 courseService.getAllCourses = () => {
-    return axios({
-        method: "GET",
-        url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
-        headers: {
-            "content-type": "application/json",
-        },
-    }).catch(function(error) {
-        console.log("Error: " + error.message);
-    });
+  return axios({
+    method: "GET",
+    url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
+    headers: {
+      "content-type": "application/json",
+    },
+  }).catch(function (error) {
+    console.log("Error: " + error.message);
+  });
 };
 
 courseService.addCourse = (data) => {
-    return axios({
-        method: "POST",
-        url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
-        data: data,
-        headers: {
-            "content-type": "application/json",
-        },
-    }).catch(function(error) {
-        console.log("Error: " + error.message);
-    });
+  return axios({
+    method: "POST",
+    url: AT_UNIVERSITY_SERVICE_URI + `/v1/course`,
+    data: data,
+    headers: {
+      "content-type": "application/json",
+    },
+  }).catch(function (error) {
+    console.log("Error: " + error.message);
+  });
+};
+
+courseService.deleteCourse = (id) => {
+  return {};
 };
 
 module.exports = courseService;
