@@ -49,12 +49,14 @@ adminCtrl.addCourse = async(req, res) => {
 // AT-UNIVERSITY - Admin - Render Edit Course Form
 adminCtrl.renderEditCourseForm = async (req, res) => {
     console.log("--> adminCtrl.renderEditCourseForm");
-    res.render('admin/course/edit-course', {course})
+    res.render('/admin/course/edit-course')
 };
 
 // AT-UNIVERSITY - Admin - Update Course
 adminCtrl.updateCourse = async(req, res) => {
     // Redirect
+    const { title, description, status, category, img } = req.body; 
+    await universityServiceAPI.updateCourse()
     req.flash("success_msg", "Course Updated Successfully");
     res.redirect("/admin/course");
 };
