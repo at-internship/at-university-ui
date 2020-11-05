@@ -32,7 +32,7 @@ adminCtrl.addCourse = async(req, res) => {
     const { title, description, status, category, img } = req.body;
     let courses;
     let request = {
-        title,
+        title, 
         description,
         category: category,
         img,
@@ -49,7 +49,20 @@ adminCtrl.addCourse = async(req, res) => {
 // AT-UNIVERSITY - Admin - Render Edit Course Form
 adminCtrl.renderEditCourseForm = async (req, res) => {
     console.log("--> adminCtrl.renderEditCourseForm");
-    res.render('/admin/course/edit-course')
+    let courseId = req.params.id;
+    universityServiceAPI.getCourseById(courseId);
+
+    // *** Temporary code to retrive information about the course ***
+
+    let responseCourses = await universityServiceAPI.getAllCourses();
+    
+    courseDetails = responseCourses.data.filter( function(c) { return c._id == courseId; });
+
+    console.log("One course found", courseDetails);
+
+    // **************************************************************
+
+    res.render("admin/course/edit-course", { courseDetails });
 };
 
 // AT-UNIVERSITY - Admin - Update Course

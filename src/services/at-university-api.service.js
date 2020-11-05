@@ -36,6 +36,11 @@ courseService.addCourse = (data) => {
     });
 };
 
+courseService.getCourseById = (id) => {
+    // End point to retrive details about the course doesn't exist 
+    return { };
+}
+
 courseService.updateCourse = (data) => {
     return axios({
         method: "PUT",
