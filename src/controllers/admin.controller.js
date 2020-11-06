@@ -9,7 +9,7 @@ adminCtrl.renderIndexAdmin = (req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Render Course List
-adminCtrl.renderCourseList = async(req, res) => {
+adminCtrl.renderCourseList = async (req, res) => {
     try {
         const responseCourses = await universityServiceAPI.getAllCourses();
         console.log("---> adminCtrl.renderCourseList.getAllCourses");
@@ -28,11 +28,11 @@ adminCtrl.renderAddCourseForm = (req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Add Course
-adminCtrl.addCourse = async(req, res) => {
+adminCtrl.addCourse = async (req, res) => {
     const { title, description, status, category, img } = req.body;
     let courses;
     let request = {
-        title, 
+        title,
         description,
         category: category,
         img,
@@ -52,24 +52,39 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
     let courseId = req.params.id;
     universityServiceAPI.getCourseById(courseId);
 
-    // *** Temporary code to retrive information about the course ***
+    // Temporary code to retrive information about the course
 
     let responseCourses = await universityServiceAPI.getAllCourses();
-    
-    courseDetails = responseCourses.data.filter( function(c) { return c._id == courseId; });
 
-    console.log("One course found", courseDetails);
+    courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
 
-    // **************************************************************
+    console.log("One course found", courseDetails[0]);
 
-    res.render("admin/course/edit-course", { courseDetails });
+    // ---
+
+    res.render("admin/course/edit-course", courseDetails[0]);
 };
 
 // AT-UNIVERSITY - Admin - Update Course
-adminCtrl.updateCourse = async(req, res) => {
+adminCtrl.updateCourse = async (req, res) => {
     // Redirect
-    const { title, description, status, category, img } = req.body; 
-    await universityServiceAPI.updateCourse()
+    const { title, description, status, category, img } = req.body;
+    const _id = req.params.id;
+
+    await universityServiceAPI.updateCourse({
+        id: _id,
+        title: title,
+        description: description,
+        category: category,
+        img: img,
+        status: parseInt(status)
+    })
+
+    await universityServiceAPI.updateCourse(request).then(result => {
+        console.log(result);
+        courses = result;
+    });
+
     req.flash("success_msg", "Course Updated Successfully");
     res.redirect("/admin/course");
 };

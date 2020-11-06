@@ -10,31 +10,33 @@
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
       </div>
       <div class="card-body">
-        <form class="form-horizontal" action="/admin/course/edit-course" method="POST">
+        <form class="form-horizontal" action="/admin/course/edit-course/{{_id}}" method="POST">
           <div class="form-group">
             <label for="category">Select a category:</label>
-            <select required class="form-control" name="category">
-              <option value="JAVA">Java</option>
-              <option value="PEGA">Pega</option>
-              <option value="JS">Javascript</option>
+            <select required class="form-control" name="category" )>
+              <option {{ selected category "JAVA" }}>Java</option>
+              <option {{ selected category "PEGA" }}>Pega</option>
+              <option {{ selected category "JS" }}>Javascript</option>
             </select>
           </div>
           <div class="form-group">
-            <input type="text" name="title" required class="form-control" value="{{Course.title}}" autofocus />
+            <input type="text" name="title" required value='{{ title }}' class="form-control" autofocus />
           </div>
           <div class="form-group">
-            <textarea name="description" required class="form-control">{{ Course.description }}</textarea>
+            <textarea name="description" required class="form-control"> {{ description }} </textarea>
           </div>
           <div class="form-group">
-            <input required type="text" name="img" class="form-control" value="{{ Course.img }}" />
+            <input required type="text" name="img" class="form-control" value="{{ img }}" />
           </div>
           <div class="form-group">
             <div class="checkbox">
-              <label><input required type="radio" name="status" value="{{ Course.status }}"
-                  placeholder="Status">Active</label>
+              <label><input required type="radio" name="status" value="1" {{ checked status '1' }}
+                  placeholder="Status">Active
+              </label>
             </div>
             <div class="checkbox">
-              <label><input type="radio" name="status" value="{{ Course.status }}" placeholder="Status">Inactive</label>
+              <label><input type="radio" name="status" value="0" {{ checked status '0' }} placeholder="Status">Inactive
+              </label>
             </div>
           </div>
           <div class="form-group">

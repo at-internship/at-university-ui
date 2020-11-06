@@ -19,17 +19,32 @@ app.engine(
         layoutsDir: path.join(app.get("views"), "layouts"),
         partialsDir: path.join(app.get("views"), "partials"),
         extname: ".hbs",
+
+        // Helpers  
+        helpers: {
+            'checked': function (a, b) {
+                if (a == undefined) return '';
+                return a == b ? 'checked' : '';
+            },
+            'selected': function (a, b) {
+                if (a == undefined) return '';
+                return a == b ? 'selected' : '';
+            }
+        }
     })
 );
+
 app.set("view engine", ".hbs");
 
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-app.use(session({ cookie: { maxAge: 60000 }, 
+app.use(session({
+    cookie: { maxAge: 60000 },
     secret: 'secret',
-    resave: false, 
-    saveUninitialized: false}));
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(flash());
 
 // Global Middlewares
