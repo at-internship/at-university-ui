@@ -72,18 +72,13 @@ adminCtrl.updateCourse = async (req, res) => {
     const _id = req.params.id;
 
     await universityServiceAPI.updateCourse({
-        id: _id,
+        _id: _id,
         title: title,
         description: description,
         category: category,
         img: img,
         status: parseInt(status)
     })
-
-    await universityServiceAPI.updateCourse(request).then(result => {
-        console.log(result);
-        courses = result;
-    });
 
     req.flash("success_msg", "Course Updated Successfully");
     res.redirect("/admin/course");

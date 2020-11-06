@@ -44,7 +44,7 @@ courseService.getCourseById = (id) => {
 courseService.updateCourse = (data) => {
     return axios({
         method: "PUT",
-        url: AT_UNIVERSITY_SERVICE_URI + `/v1/course/` + data.id,
+        url: AT_UNIVERSITY_SERVICE_URI + `/v1/course/` + data._id,
         data: data,
         headers: {
             "content-type": "application/json",
