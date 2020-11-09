@@ -1,1 +1,46 @@
-<h1>This page will be available soon...</h1>
+<div class="row justify-content-center mt-5">
+  <div class="col-md-4 my-auto">
+    <div class="card text-center">
+      <div class="card-header">
+        <h3>Edit Course</h3>
+      </div>
+      <div class="card-body">
+        <form class="form-horizontal" action="/admin/course/edit/{{_id}}?_method=PUT" method="POST">
+          <div class="form-group">
+            <label for="category">Select a category:</label>
+            <select required class="form-control" name="category" )>
+              <option {{ selected category "JAVA" }}>Java</option>
+              <option {{ selected category "PEGA" }}>Pega</option>
+              <option {{ selected category "JS" }}>Javascript</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="title" required value='{{ title }}' class="form-control" autofocus />
+          </div>
+          <div class="form-group">
+            <textarea name="description" required class="form-control"> {{ description }} </textarea>
+          </div>
+          <div class="form-group">
+            <input required type="text" name="img" class="form-control" value="{{ img }}" />
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label><input required type="radio" name="status" value="1" {{ checked status '1' }}
+                  placeholder="Status">Active
+              </label>
+            </div>
+            <div class="checkbox">
+              <label><input type="radio" name="status" value="0" {{ checked status '0' }} placeholder="Status">Inactive
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

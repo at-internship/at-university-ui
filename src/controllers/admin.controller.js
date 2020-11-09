@@ -9,7 +9,7 @@ adminCtrl.renderIndexAdmin = (req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Render Course List
-adminCtrl.renderCourseList = async(req, res) => {
+adminCtrl.renderCourseList = async (req, res) => {
     try {
         const responseCourses = await universityServiceAPI.getAllCourses();
         console.log("---> adminCtrl.renderCourseList.getAllCourses");
@@ -28,7 +28,7 @@ adminCtrl.renderAddCourseForm = (req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Add Course
-adminCtrl.addCourse = async(req, res) => {
+adminCtrl.addCourse = async (req, res) => {
     const { title, description, status, category, img } = req.body;
     let courses;
     let request = {
@@ -47,14 +47,39 @@ adminCtrl.addCourse = async(req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Render Edit Course Form
-adminCtrl.renderEditCourseForm = (req, res) => {
+adminCtrl.renderEditCourseForm = async (req, res) => {
     console.log("--> adminCtrl.renderEditCourseForm");
-    res.render("admin/course/edit-course");
+    let courseId = req.params.id;
+    universityServiceAPI.getCourseById(courseId);
+
+    // Temporary code to retrive information about the course
+
+    let responseCourses = await universityServiceAPI.getAllCourses();
+
+    courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
+
+    console.log("One course found", courseDetails[0]);
+
+    // ---
+
+    res.render("admin/course/edit-course", courseDetails[0]);
 };
 
 // AT-UNIVERSITY - Admin - Update Course
-adminCtrl.updateCourse = (req, res) => {
+adminCtrl.updateCourse = async (req, res) => {
     // Redirect
+    const { title, description, status, category, img } = req.body;
+    const _id = req.params.id;
+
+    await universityServiceAPI.updateCourse({
+        _id: _id,
+        title: title,
+        description: description,
+        category: category,
+        img: img,
+        status: parseInt(status)
+    })
+
     req.flash("success_msg", "Course Updated Successfully");
     res.redirect("/admin/course");
 };
@@ -62,7 +87,6 @@ adminCtrl.updateCourse = (req, res) => {
 // AT-UNIVERSITY - Admin - Delete Course
 adminCtrl.deleteCourse = (req, res) => {
     const errors = [];
-
     // Redirect
     req.flash("success_msg", "Course Deleted Successfully");
     res.redirect("/admin/course");

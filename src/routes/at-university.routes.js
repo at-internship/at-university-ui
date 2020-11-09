@@ -5,7 +5,7 @@ const {
     dashboard,
     careerDetails,
     courseDetails,
-    startCourse
+    startCourse,
 } = require('../controllers/at-university.controller');
 
 // ============= Sub Routes =============
