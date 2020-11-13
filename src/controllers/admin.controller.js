@@ -35,7 +35,7 @@ adminCtrl.addCourse = async (req, res) => {
         let request = {
             title,
             description,
-            category: null,
+            category: category,
             img,
             status: parseInt(status),
         };
