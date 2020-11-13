@@ -29,20 +29,27 @@ adminCtrl.renderAddCourseForm = (req, res) => {
 
 // AT-UNIVERSITY - Admin - Add Course
 adminCtrl.addCourse = async (req, res) => {
-    const { title, description, status, category, img } = req.body;
-    let courses;
-    let request = {
-        title,
-        description,
-        category: category,
-        img,
-        status: parseInt(status),
+    try {
+        const { title, description, status, category, img } = req.body;
+        let courses;
+        let request = {
+            title,
+            description,
+            category: null,
+            img,
+            status: parseInt(status),
+        };
+        await universityServiceAPI.addCourse(request).then(result => {
+            console.log(result);
+            courses = result;
+        });
+    } catch (err) {
+        console.log(err.response);
+        if(err.response && err.response.data){
+            let errorMsg = err.response.data.message;
+            req.flash("error_msg", errorMsg);
+        };
     };
-    await universityServiceAPI.addCourse(request).then(result => {
-        console.log(result);
-        courses = result;
-    });
-
   res.redirect("/admin/course");
 };
 
