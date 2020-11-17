@@ -36,11 +36,9 @@ courseService.addCourse = (data) => {
   });
 };
 
-
 courseService.deleteCourse = (id) => {
   return {};
 };
-
 
 courseService.getCourseById = (id) => {
     // End point to retrive details about the course doesn't exist 
@@ -59,6 +57,4 @@ courseService.updateCourse = (data) => {
         console.log("Error: " + error.message);
     });
 };
-
 module.exports = courseService;
-
