@@ -5,7 +5,7 @@ const universityServiceAPI = require("../services/at-university-api.service");
 
 // AT-UNIVERSITY - Admin - Index
 adminCtrl.renderIndexAdmin = (req, res) => {
-  res.render("admin/index");
+    res.render("admin/index");
 };
 
 // AT-UNIVERSITY - Admin - Render Course List
@@ -24,7 +24,7 @@ adminCtrl.renderCourseList = async (req, res) => {
 
 // AT-UNIVERSITY - Admin - Render Add Course Form
 adminCtrl.renderAddCourseForm = (req, res) => {
-  res.render("admin/course/add-course");
+    res.render("admin/course/add-course");
 };
 
 // AT-UNIVERSITY - Admin - Add Course
@@ -45,31 +45,36 @@ adminCtrl.addCourse = async (req, res) => {
         });
     } catch (err) {
         console.log(err.response);
-        if(err.response && err.response.data){
+        if (err.response && err.response.data) {
             let errorMsg = err.response.data.message;
             req.flash("error_msg", errorMsg);
         };
     };
-  res.redirect("/admin/course");
+    res.redirect("/admin/course");
 };
 
 // AT-UNIVERSITY - Admin - Render Edit Course Form
 adminCtrl.renderEditCourseForm = async (req, res) => {
-    console.log("--> adminCtrl.renderEditCourseForm");
-    let courseId = req.params.id;
-    universityServiceAPI.getCourseById(courseId);
 
-    // Temporary code to retrive information about the course
+    try {
+        console.log("--> adminCtrl.renderEditCourseForm");
+        let courseId = req.params.id;
+        universityServiceAPI.getCourseById(courseId);
 
-    let responseCourses = await universityServiceAPI.getAllCourses();
+        // Temporary code to retrive information about the course
 
-    courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
+        let responseCourses = await universityServiceAPI.getAllCourses();
 
-    console.log("One course found", courseDetails[0]);
+        courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
 
-    // ---
+        console.log("One course found", courseDetails[0]);
+
+    } catch (err) {
+
+    }
 
     res.render("admin/course/edit-course", courseDetails[0]);
+
 };
 
 // AT-UNIVERSITY - Admin - Update Course
@@ -93,15 +98,15 @@ adminCtrl.updateCourse = async (req, res) => {
 
 // AT-UNIVERSITY - Admin - Delete Course
 adminCtrl.deleteCourse = (req, res) => {
-  const errors = [];
+    const errors = [];
 
-  let courseId = req.params.id;
-  universityServiceAPI.deleteCourse(courseId);
-  console.log("---> adminCtrl.deleteCourse", courseId);
+    let courseId = req.params.id;
+    universityServiceAPI.deleteCourse(courseId);
+    console.log("---> adminCtrl.deleteCourse", courseId);
 
-  // Redirect
-  req.flash("success_msg", "Course Deleted Successfully");
-  res.redirect("/admin/course");
+    // Redirect
+    req.flash("success_msg", "Course Deleted Successfully");
+    res.redirect("/admin/course");
 
 };
 
