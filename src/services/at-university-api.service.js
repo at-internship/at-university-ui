@@ -31,9 +31,7 @@ courseService.addCourse = (data) => {
     headers: {
       "content-type": "application/json",
     },
-  }).catch(function (error) {
-    console.log("Error: " + error.message);
-  });
+  })
 };
 
 courseService.deleteCourse = (id) => {
