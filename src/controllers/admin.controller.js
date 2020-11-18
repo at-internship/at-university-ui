@@ -70,19 +70,27 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
 // AT-UNIVERSITY - Admin - Update Course
 adminCtrl.updateCourse = async (req, res) => {
   // Redirect
-  const { title, description, status, category, img } = req.body;
-  const _id = req.params.id;
+  try {
+    const { title, description, status, category, img } = req.body;
+    const _id = req.params.id;
 
-  await universityServiceAPI.updateCourse({
-    _id: _id,
-    title: title,
-    description: description,
-    category: category,
-    img: img,
-    status: parseInt(status),
-  });
+    await universityServiceAPI.updateCourse({
+      _id: _id,
+      title: title,
+      description: description,
+      category: category,
+      img: img,
+      status: parseInt(status),
+    });
 
-  req.flash("success_msg", "Course Updated Successfully");
+    req.flash("success_msg", "Course Updated Successfully");
+  } catch (err) {
+    console.log(err.response);
+    if (err.response && err.response.data) {
+      let errorMsg = err.response.data.message;
+      req.flash("error_msg", errorMsg);
+    }
+  }
   res.redirect("/admin/course");
 };
 
@@ -96,32 +104,6 @@ adminCtrl.deleteCourse = (req, res) => {
 
   // Redirect
   req.flash("success_msg", "Course Deleted Successfully");
-  res.redirect("/admin/course");
-};
-
-adminCtrl.updateCourse = async (req, res) => {
-  // Redirect
-  try {
-    const { title, description, status, category, img } = req.body;
-    const _id = req.params.id;
-
-    await universityServiceAPI.updateCourse({
-      _id: _id,
-      title: title,
-      description: description,
-      category: null,
-      img: img,
-      status: parseInt(status),
-    });
-
-    req.flash("success_msg", "Course Updated Successfully");
-  } catch (err) {
-    console.log(err.response);
-    if (err.response && err.response.data) {
-      let errorMsg = err.response.data.message;
-      req.flash("error_msg", errorMsg);
-    }
-  }
   res.redirect("/admin/course");
 };
 
