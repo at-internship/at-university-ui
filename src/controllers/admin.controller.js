@@ -1,6 +1,5 @@
 const adminCtrl = {};
 
-const { response } = require("express");
 // MICROSERVICE - HEROKU - UNIVERSITY
 const universityServiceAPI = require("../services/at-university-api.service");
 
