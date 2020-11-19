@@ -21,7 +21,7 @@ adminCtrl.renderCourseList = async (req, res) => {
         if (err.response && err.response.data) {
             let errorMsgs = err.response.data.error;
             req.flash("error_msg", errorMsgs);
-            res.redirect("/admin");
+            res.redirect("/admin/course");
         }
     }
 };
@@ -75,7 +75,7 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
         if (err.response && err.response.data) {
             let errorMsg = err.response.data.error;
             req.flash("error_msg", errorMsg, " Try again later");
-            res.redirect("/admin");
+            res.redirect("/admin/course");
         }
     };
 }
