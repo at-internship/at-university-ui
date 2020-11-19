@@ -1,5 +1,6 @@
 const adminCtrl = {};
 
+const { response } = require("express");
 // MICROSERVICE - HEROKU - UNIVERSITY
 const universityServiceAPI = require("../services/at-university-api.service");
 
@@ -13,12 +14,16 @@ adminCtrl.renderCourseList = async (req, res) => {
     try {
         const responseCourses = await universityServiceAPI.getAllCourses();
         console.log("---> adminCtrl.renderCourseList.getAllCourses");
-        //console.log(responseCourses.data);
         const courses = responseCourses.data;
-        res.render("admin/course/index", { courses });
+        res.render("admin/course", { courses });
     } catch (err) {
-        console.error(err.message);
-        res.render("admin/course/index");
+        //if you need to check more details of the error in console replace ".message" by ".response"
+        console.log(err.message);
+        if (err.response && err.response.data) {
+            let errorMsgs = err.response.data.error;
+            req.flash("error_msg", errorMsgs);
+            res.redirect("/admin");
+        }
     }
 };
 
@@ -55,27 +60,26 @@ adminCtrl.addCourse = async (req, res) => {
 
 // AT-UNIVERSITY - Admin - Render Edit Course Form
 adminCtrl.renderEditCourseForm = async (req, res) => {
-
     try {
-        console.log("--> adminCtrl.renderEditCourseForm");
+        console.log("---> adminCtrl.renderEditCourseForm");
         let courseId = req.params.id;
         universityServiceAPI.getCourseById(courseId);
 
         // Temporary code to retrive information about the course
 
         let responseCourses = await universityServiceAPI.getAllCourses();
-
         courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
-
         console.log("One course found", courseDetails[0]);
-
+        res.render("admin/course/edit-course", courseDetails[0]);
     } catch (err) {
-
-    }
-
-    res.render("admin/course/edit-course", courseDetails[0]);
-
-};
+        console.log(err.response);
+        if (err.response && err.response.data) {
+            let errorMsg = err.response.data.error;
+            req.flash("error_msg", errorMsg, " Try again later");
+            res.redirect("/admin");
+        }
+    };
+}
 
 // AT-UNIVERSITY - Admin - Update Course
 adminCtrl.updateCourse = async (req, res) => {

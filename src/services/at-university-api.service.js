@@ -18,8 +18,6 @@ courseService.getAllCourses = () => {
     headers: {
       "content-type": "application/json",
     },
-  }).catch(function (error) {
-    console.log("Error: " + error.message);
   });
 };
 
@@ -34,11 +32,9 @@ courseService.addCourse = (data) => {
   })
 };
 
-
 courseService.deleteCourse = (id) => {
   return {};
 };
-
 
 courseService.getCourseById = (id) => {
     // End point to retrive details about the course doesn't exist 
@@ -59,4 +55,3 @@ courseService.updateCourse = (data) => {
 };
 
 module.exports = courseService;
-
