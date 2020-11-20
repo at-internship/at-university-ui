@@ -18,8 +18,6 @@ courseService.getAllCourses = () => {
     headers: {
       "content-type": "application/json",
     },
-  }).catch(function (error) {
-    console.log("Error: " + error.message);
   });
 };
 
