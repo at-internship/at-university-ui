@@ -10,20 +10,18 @@ adminCtrl.renderIndexAdmin = (req, res) => {
 
 // AT-UNIVERSITY - Admin - Render Course List
 adminCtrl.renderCourseList = async (req, res) => {
-    try {
-        const responseCourses = await universityServiceAPI.getAllCourses();
-        console.log("---> adminCtrl.renderCourseList.getAllCourses");
-        const courses = responseCourses.data;
-        res.render("admin/course", { courses });
-    } catch (err) {
-        //if you need to check more details of the error in console replace ".message" by ".response"
-        console.log(err.message);
-        if (err.response && err.response.data) {
-            let errorMsgs = err.response.data.error;
-            req.flash("error_msg", errorMsgs);
-            res.redirect("/admin/course");
-        }
-    }
+
+  try {
+    const responseCourses = await universityServiceAPI.getAllCourses();
+    console.log("---> adminCtrl.renderCourseList.getAllCourses");
+    //console.log(responseCourses.data);
+    const courses = responseCourses.data;
+    res.render("admin/course/index", { courses });
+  } catch (err) {
+    console.error(err.message);
+    res.render("admin/course/index");
+  }
+
 };
 
 // AT-UNIVERSITY - Admin - Render Add Course Form
@@ -33,6 +31,7 @@ adminCtrl.renderAddCourseForm = (req, res) => {
 
 // AT-UNIVERSITY - Admin - Add Course
 adminCtrl.addCourse = async (req, res) => {
+
     try {
         const { title, description, status, category, img } = req.body;
         let courses;
@@ -55,6 +54,7 @@ adminCtrl.addCourse = async (req, res) => {
         };
     };
     res.redirect("/admin/course");
+
 };
 
 // AT-UNIVERSITY - Admin - Render Edit Course Form
@@ -80,23 +80,32 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
     };
 }
 
+
 // AT-UNIVERSITY - Admin - Update Course
 adminCtrl.updateCourse = async (req, res) => {
-    // Redirect
+  // Redirect
+  try {
     const { title, description, status, category, img } = req.body;
     const _id = req.params.id;
 
     await universityServiceAPI.updateCourse({
-        _id: _id,
-        title: title,
-        description: description,
-        category: category,
-        img: img,
-        status: parseInt(status)
-    })
+      _id: _id,
+      title: title,
+      description: description,
+      category: category,
+      img: img,
+      status: parseInt(status),
+    });
 
     req.flash("success_msg", "Course Updated Successfully");
-    res.redirect("/admin/course");
+  } catch (err) {
+    console.log(err.response);
+    if (err.response && err.response.data) {
+      let errorMsg = err.response.data.message;
+      req.flash("error_msg", errorMsg);
+    }
+  }
+  res.redirect("/admin/course");
 };
 
 // AT-UNIVERSITY - Admin - Delete Course

@@ -37,21 +37,19 @@ courseService.deleteCourse = (id) => {
 };
 
 courseService.getCourseById = (id) => {
-    // End point to retrive details about the course doesn't exist 
-    return { };
-}
+  // End point to retrive details about the course doesn't exist
+  return {};
+};
 
 courseService.updateCourse = (data) => {
-    return axios({
-        method: "PUT",
-        url: AT_UNIVERSITY_SERVICE_URI + `/v1/course/` + data._id,
-        data: data,
-        headers: {
-            "content-type": "application/json",
-        },
-    }).catch(function(error) {
-        console.log("Error: " + error.message);
-    });
+  return axios({
+    method: "PUT",
+    url: AT_UNIVERSITY_SERVICE_URI + `/v1/course/` + data._id,
+    data: data,
+    headers: {
+      "content-type": "application/json",
+    },
+  });
 };
 
 module.exports = courseService;
