@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "mocha src/test/test.js",
+    "test": "mocha test/**/*.js",
     "coverage": "nyc --reporter=lcov --reporter=text npm run test"
   },
   "repository": {
@@ -33,7 +33,8 @@
     "mocha": "^8.2.1",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sinon": "^9.2.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
