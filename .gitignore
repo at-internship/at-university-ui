@@ -1,5 +1,8 @@
 # Nodejs
 node_modules
+.nyc_output
+coverage
+
 
 # npm
 package-lock.json

@@ -1,12 +1,9 @@
 var sinon = require("sinon");
-var adminC = require("../../src/controllers/admin.controller");
-var universityServiceAPI = require("../../src/services/at-university-api.service");
-let chai = require("chai");
+var adminC = require("../../controllers/admin.controller");
+var universityServiceAPI = require("../../services/at-university-api.service");
 const expect = require("chai").expect;
 
-var assert = require("assert");
-
-describe("admin-test", function () {
+describe("Admin Test Controller", function () {
   let getAllCoursesStub;
 
   beforeEach(function () {
