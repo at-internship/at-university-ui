@@ -1,8 +1,27 @@
+/**
+ * AT UNIVERSITY UI - AT University Controller.
+ * Copyright 2020 AgileThought, Inc.
+ * 
+ * General Functions for at-university-controller.
+ * 
+ * @author @at-internship
+ * @version 1.0
+ */
+
+// AT University Controller
 const atUniversityCtrl = {};
 
+// AT University Service API
 const universityServiceAPI = require("../services/at-university-api.service");
 
-// AT-UINERSITY - Index/Dashboard
+/**
+ * Controller function to handle view render for Index/Dashboard section.
+ * 
+ * @param  {req} req  Request object
+ * @param  {res} res  Response object
+ * @return {Promise<any>} Render hablebars view
+ * @abstract
+ */
 atUniversityCtrl.dashboard = async(req, res) => {
     try {
         const responseCourses = await universityServiceAPI.getAllCourses();
