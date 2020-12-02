@@ -7,7 +7,7 @@ atUniversityCtrl.dashboard = async(req, res) => {
     try {
         const responseCourses = await universityServiceAPI.getAllCourses();
         console.log("--> atUniversityCtrl.dashboard.getAllCourses");
-        console.log(responseCourses.data);
+        //console.log(responseCourses.data);
         const courses = responseCourses.data
         res.render("dashboard", { courses });
     } catch (err) {
@@ -19,19 +19,19 @@ atUniversityCtrl.dashboard = async(req, res) => {
 // AT-UINERSITY - Career
 atUniversityCtrl.careerDetails = async(req, res) => {
     console.log("--> atUniversityCtrl.career");
-    res.render("career/details");
+    return res.render("career/details");
 };
 
 // AT-UINERSITY - Course
 atUniversityCtrl.courseDetails = async(req, res) => {
     console.log("--> atUniversityCtrl.course");
-    res.render("course/details");
+    return res.render("course/details");
 };
 
 // AT-UINERSITY - Start Course
-atUniversityCtrl.startCourse = (req, res) => {
+atUniversityCtrl.startCourse = async (req, res) => {
     console.log("--> atUniversityCtrl.startCourse");
-    res.render("course/start");
+     return res.render("course/start");
 };
 
 module.exports = atUniversityCtrl;
