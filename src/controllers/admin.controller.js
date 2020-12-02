@@ -5,7 +5,7 @@ const universityServiceAPI = require("../services/at-university-api.service");
 
 // AT-UNIVERSITY - Admin - Index
 adminCtrl.renderIndexAdmin = (req, res) => {
-    res.render("admin/index");
+    return res.render("admin/index");
 };
 
 // AT-UNIVERSITY - Admin - Render Course List
