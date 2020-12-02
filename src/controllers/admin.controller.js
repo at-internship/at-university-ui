@@ -46,6 +46,9 @@ adminCtrl.addCourse = async (req, res) => {
             console.log(result);
             courses = result;
         });
+
+        req.flash("success_msg", "Course Added Successfully");
+
     } catch (err) {
         console.log(err.response);
         if (err.response && err.response.data) {
