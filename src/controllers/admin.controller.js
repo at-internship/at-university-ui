@@ -46,6 +46,7 @@ adminCtrl.addCourse = async (req, res) => {
             console.log(result);
             courses = result;
         });
+        req.flash("success_msg", "Course added successfully");
     } catch (err) {
         console.log(err.response);
         if (err.response && err.response.data) {
@@ -54,7 +55,6 @@ adminCtrl.addCourse = async (req, res) => {
         };
     };
     res.redirect("/admin/course");
-
 };
 
 // AT-UNIVERSITY - Admin - Render Edit Course Form
@@ -96,7 +96,6 @@ adminCtrl.updateCourse = async (req, res) => {
       img: img,
       status: parseInt(status),
     });
-
     req.flash("success_msg", "Course Updated Successfully");
   } catch (err) {
     console.log(err.response);
