@@ -29,7 +29,7 @@ courseService.addCourse = (data) => {
     headers: {
       "content-type": "application/json",
     },
-  })
+  });
 };
 
 courseService.deleteCourse = (id) => {
