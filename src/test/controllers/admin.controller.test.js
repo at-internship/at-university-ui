@@ -67,8 +67,8 @@ describe("TEST: admin.controller.js", function() {
     it("Should launch add course", function(done){
         var res = { render: sinon.spy() };
         var req = {};
-        var courses = {};
-        getAllCoursesStub.returns(Promise.resolve(courses));
+        var results = {body:0};
+        getAllCoursesStub.returns(Promise.resolve(results));
         var view = adminCtrl.addCourse(req, res).then(function () {
             expect(res.render.calledOnce).to.be.true;
             done();
@@ -87,6 +87,8 @@ describe("TEST: admin.controller.js", function() {
     it("Should delete course", function (done) {
         var res = {render:sinon.spy()};
         var req = {};
+        var courseDetails = {params: {id: 0} };
+        getAllCoursesStub.returns(Promise.resolve(courseDetails));
         var view = adminCtrl.deleteCourse(req, res).then(function (){
             expect(res.render.calledOnce).to.be.true;
             done();

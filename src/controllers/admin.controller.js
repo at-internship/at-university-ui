@@ -70,7 +70,6 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
         courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
 
         if (courseDetails.length == 0){
-          console.log( courseDetails);
           return res.render("admin/course/edit-course", {});
         }
 
@@ -119,8 +118,13 @@ adminCtrl.deleteCourse = (req, res) => {
     const errors = [];
 
     let courseId = req.params.id;
-    universityServiceAPI.deleteCourse(courseId);
+
+    if (courseDetails.length == 0){
+      return universityServiceAPI.deleteCourse();
+    }
+
     console.log("---> adminCtrl.deleteCourse", courseId);
+    return universityServiceAPI.deleteCourse(courseId);
 
     // Redirect
     req.flash("success_msg", "Course Deleted Successfully");
