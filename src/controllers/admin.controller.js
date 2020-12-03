@@ -4,7 +4,7 @@ const adminCtrl = {};
 const universityServiceAPI = require("../services/at-university-api.service");
 
 // AT-UNIVERSITY - Admin - Index
-adminCtrl.renderIndexAdmin = (req, res) => {
+adminCtrl.renderIndexAdmin = async (req, res) => {
     return res.render("admin/index");
 };
 
@@ -25,8 +25,8 @@ adminCtrl.renderCourseList = async (req, res) => {
 };
 
 // AT-UNIVERSITY - Admin - Render Add Course Form
-adminCtrl.renderAddCourseForm = (req, res) => {
-    res.render("admin/course/add-course");
+adminCtrl.renderAddCourseForm = async (req, res) => {
+    return res.render("admin/course/add-course");
 };
 
 // AT-UNIVERSITY - Admin - Add Course
@@ -68,8 +68,14 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
 
         let responseCourses = await universityServiceAPI.getAllCourses();
         courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
+
+        if (courseDetails.length == 0){
+          console.log( courseDetails);
+          return res.render("admin/course/edit-course", {});
+        }
+
         console.log("One course found", courseDetails[0]);
-        res.render("admin/course/edit-course", courseDetails[0]);
+        return res.render("admin/course/edit-course", courseDetails[0]);
     } catch (err) {
         console.log(err.response);
         if (err.response && err.response.data) {
