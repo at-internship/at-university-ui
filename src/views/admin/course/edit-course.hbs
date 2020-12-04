@@ -9,16 +9,16 @@
           <div class="form-group">
             <label for="category">Select a category:</label>
             <select required class="form-control" name="category" )>
-              <option {{ selected category "JAVA" }}>Java</option>
-              <option {{ selected category "PEGA" }}>Pega</option>
-              <option {{ selected category "JS" }}>Javascript</option>
+              <option value="JAVA" {{ selected category "JAVA" }}>Java</option>
+              <option value="PEGA" {{ selected category "PEGA" }}>Pega</option>
+              <option value="JS" {{ selected category "JS" }}>Javascript</option>
             </select>
           </div>
           <div class="form-group">
             <input type="text" name="title" required value='{{ title }}' class="form-control" autofocus />
           </div>
           <div class="form-group">
-            <textarea name="description" required class="form-control"> {{ description }} </textarea>
+            <textarea name="description" required class="form-control">{{description}}</textarea>
           </div>
           <div class="form-group">
             <input required type="text" name="img" class="form-control" value="{{ img }}" />
