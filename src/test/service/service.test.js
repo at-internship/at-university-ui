@@ -25,14 +25,14 @@ describe("TEST: at-univeristy.service", () => {
     chai
       .request(tutorialServiceAPI)
       .get("/")
-      .end(function (err, res) {
+      .end(function (err, res) 
         //console.log(res.body);
 
         // Response Status
         expect(res).to.have.status(200);
 
         done();
-      });
+    });
   });
 
   it("Should Fail Get All Courses - 400", (done) => {
