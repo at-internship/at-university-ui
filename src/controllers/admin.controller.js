@@ -53,7 +53,7 @@ adminCtrl.addCourse = async (req, res) => {
             req.flash("error_msg", errorMsg);
         };
     };
-    res.redirect("/admin/course");
+    return res.redirect("/admin/course");
 
 };
 
@@ -110,25 +110,20 @@ adminCtrl.updateCourse = async (req, res) => {
       req.flash("error_msg", errorMsg);
     }
   }
-  res.redirect("/admin/course");
+  return res.redirect("/admin/course");
 };
 
 // AT-UNIVERSITY - Admin - Delete Course
-adminCtrl.deleteCourse = (req, res) => {
-    const errors = [];
+adminCtrl.deleteCourse = async (req, res) => {
+  const errors = [];
 
-    let courseId = req.params.id;
+  let courseId = req.params.id;
+  universityServiceAPI.deleteCourse(courseId);
+  console.log("---> adminCtrl.deleteCourse", courseId);
 
-    if (courseDetails.length == 0){
-      return universityServiceAPI.deleteCourse();
-    }
-
-    console.log("---> adminCtrl.deleteCourse", courseId);
-    return universityServiceAPI.deleteCourse(courseId);
-
-    // Redirect
-    req.flash("success_msg", "Course Deleted Successfully");
-    res.redirect("/admin/course");
+  // Redirect
+  req.flash("success_msg", "Course Deleted Successfully");
+  return res.redirect("/admin/course");
 
 };
 
