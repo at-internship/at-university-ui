@@ -70,10 +70,6 @@ describe("TEST: admin.controller.js", function() {
         });
     });
 
-    // ---------------------------------------
-
-    
-
     it("Should launch add course", function(done){
         var res = { redirect: sinon.spy() };
         var req = { body: {title:"Test", description:"Test", status:0, category:"Test", img:"Test"}};
