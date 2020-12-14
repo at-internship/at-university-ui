@@ -36,6 +36,14 @@ describe("AT-University Test Controller ", function () {
         });
     });
 
+    it('Should read [catch] from method atUniversityCtrl.dashboard', function() {
+        var res = {};
+        var req = {};
+        var view = atUniversityC.dashboard(req, res).then(function () {
+            expect(view.run()).to.throw();
+        });
+    });
+
     afterEach(function () {
         getAllCoursesStub.restore();
     });
