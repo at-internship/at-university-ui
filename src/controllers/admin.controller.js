@@ -10,18 +10,14 @@ adminCtrl.renderIndexAdmin = async (req, res) => {
 
 // AT-UNIVERSITY - Admin - Render Course List
 adminCtrl.renderCourseList = async (req, res) => {
-
   try {
     const responseCourses = await universityServiceAPI.getAllCourses();
-    console.log("---> adminCtrl.renderCourseList.getAllCourses");
-    //console.log(responseCourses.data);
     const courses = responseCourses.data;
-    res.render("admin/course/index", { courses });
+    return res.render("admin/course/index", { courses });
   } catch (err) {
-    console.error(err.message);
-    res.render("admin/course/index");
+    console.error("Error render Course List");
+    return res.render("admin/course/index");
   }
-
 };
 
 // AT-UNIVERSITY - Admin - Render Add Course Form
@@ -34,7 +30,6 @@ adminCtrl.addCourse = async (req, res) => {
 
     try {
         const { title, description, status, category, img } = req.body;
-        let courses;
         let request = {
             title,
             description,
@@ -42,13 +37,10 @@ adminCtrl.addCourse = async (req, res) => {
             img,
             status: parseInt(status),
         };
-        await universityServiceAPI.addCourse(request).then(result => {
-            console.log(result);
-            courses = result;
-        });
+        const responseCourse = await universityServiceAPI.addCourse(request);
         req.flash("success_msg", "Course added successfully");
     } catch (err) {
-        console.log(err.response);
+      console.log("Error in AddCourse")
         if (err.response && err.response.data) {
             let errorMsg = err.response.data.message;
             req.flash("error_msg", errorMsg);
@@ -61,7 +53,6 @@ adminCtrl.addCourse = async (req, res) => {
 // AT-UNIVERSITY - Admin - Render Edit Course Form
 adminCtrl.renderEditCourseForm = async (req, res) => {
     try {
-        console.log("---> adminCtrl.renderEditCourseForm");
         let courseId = req.params.id;
         universityServiceAPI.getCourseById(courseId);
 
@@ -70,18 +61,14 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
         let responseCourses = await universityServiceAPI.getAllCourses();
         courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
 
-        if (courseDetails.length == 0){
-          return res.render("admin/course/edit-course", {});
-        }
-
-        console.log("One course found", courseDetails[0]);
-        return res.render("admin/course/edit-course", courseDetails[0]);
+        //console.log("One course found", courseDetails[0]);
+        res.render("admin/course/edit-course", courseDetails[0]);
     } catch (err) {
-        console.log(err.response);
+      console.log("Error at Edit course forum");
         if (err.response && err.response.data) {
             let errorMsg = err.response.data.error;
             req.flash("error_msg", errorMsg, " Try again later");
-            res.redirect("/admin/course");
+            return res.redirect("/admin/course");
         }
     };
 }
@@ -104,7 +91,7 @@ adminCtrl.updateCourse = async (req, res) => {
     });
     req.flash("success_msg", "Course Updated Successfully");
   } catch (err) {
-    console.log(err.response);
+    console.log("Error at Update");
     if (err.response && err.response.data) {
       let errorMsg = err.response.data.message;
       req.flash("error_msg", errorMsg);
@@ -119,12 +106,10 @@ adminCtrl.deleteCourse = async (req, res) => {
 
   let courseId = req.params.id;
   universityServiceAPI.deleteCourse(courseId);
-  console.log("---> adminCtrl.deleteCourse", courseId);
 
   // Redirect
   req.flash("success_msg", "Course Deleted Successfully");
   return res.redirect("/admin/course");
-
 };
 
 module.exports = adminCtrl;
