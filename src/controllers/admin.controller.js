@@ -60,6 +60,10 @@ adminCtrl.renderEditCourseForm = async (req, res) => {
 
         let responseCourses = await universityServiceAPI.getAllCourses();
         courseDetails = responseCourses.data.filter(function (c) { return c._id == courseId; });
+        
+        if (courseDetails.lenght == 0){
+          return res.render("admin/course/edit-course", {});
+        }
 
         //console.log("One course found", courseDetails[0]);
         res.render("admin/course/edit-course", courseDetails[0]);
