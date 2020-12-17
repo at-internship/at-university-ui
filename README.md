@@ -7,8 +7,8 @@ at-university-ui app, is one of the 3 projects of this intership program, which 
 **december, 2020**
 
 
-GitHub - [https://github.com/at-internship/at-university-ui]
-Heroku - [https://at-university-ui.herokuapp.com/dashboard]
+GitHub - https://github.com/at-internship/at-university-ui
+Heroku - https://at-university-ui.herokuapp.com/dashboard
 
 
 ## Getting Started
@@ -18,15 +18,15 @@ Heroku - [https://at-university-ui.herokuapp.com/dashboard]
 | Technology | URL |
 | ------ | ------ |
 | Node JS v 13.12 | https://nodejs.org/es/download/current |
-| Mongo DB Community Server v 4.2.5 | [https://www.mongodb.com/download-center/community] |
-| Visual Studio Code v 1.48 | [https://code.visualstudio.com/docs/?dv=win] |
-| Bootstrap v 4.4 | [https://getbootstrap.com/docs/4.4/getting-started/download] |
-| Express v 4.17.1 | [https://www.npmjs.com/package/express] |
-| Handlebars v 4.5.0 | [https://handlebarsjs.com/installation/#npm-or-yarn-recommended] |
-| Heroku CLI | [https://devcenter.heroku.com/articles/heroku-cli] |
-| Google Chrome JSON plugin | [https://chrome.google.com/webstore/detail/json-formatter] |
-| Postman v 7.31.1 | [https://www.postman.com/downloads/] |
-| Postman v 7.31.1 | [https://www.postman.com/downloads/] |
+| Mongo DB Community Server v 4.2.5 | https://www.mongodb.com/download-center/community |
+| Visual Studio Code v 1.48 | https://code.visualstudio.com/docs/?dv=win |
+| Bootstrap v 4.4 | https://getbootstrap.com/docs/4.4/getting-started/download |
+| Express v 4.17.1 | https://www.npmjs.com/package/express |
+| Handlebars v 4.5.0 | https://handlebarsjs.com/installation/#npm-or-yarn-recommended |
+| Heroku CLI | https://devcenter.heroku.com/articles/heroku-cli |
+| Google Chrome JSON plugin | https://chrome.google.com/webstore/detail/json-formatter |
+| Postman v 7.31.1 | https://www.postman.com/downloads/ |
+| Postman v 7.31.1 | https://www.postman.com/downloads/ |
 
 
 ### Plugins
@@ -71,15 +71,15 @@ Heroku - [https://at-university-ui.herokuapp.com/dashboard]
 
 | Mentor | Email |
 | ------ | ------ |
-| Raul Cabrera Aguilar | [raul.cabrera@agilethought.com] |
-| Oscar Adolfo Sánchez Rosas | [oscar.sanchez@agilethought.com] |
+| Raul Cabrera Aguilar | raul.cabrera@agilethought.com |
+| Oscar Adolfo Sánchez Rosas | oscar.sanchez@agilethought.com |
 
 
 | Interns-Devs | Email |
 | ------ | ------ |
-| Adrian Constandse Esteban | [adrian.constandse@agilethought.com] |
-| Jose Ignacio Perez Luis | [jose.perezluis@agilethought.com] |
-| Humberto Gonzalez Gonzalez | [humberto.gonzalez@agilethought.com] |
+| Adrian Constandse Esteban | adrian.constandse@agilethought.com |
+| Jose Ignacio Perez Luis | jose.perezluis@agilethought.com |
+| Humberto Gonzalez Gonzalez | humberto.gonzalez@agilethought.com |
 
 
 ## Copyright / License
