@@ -7,8 +7,8 @@ at-university-ui app, is one of the 3 projects of this intership program, which 
 **december, 2020**
 
 
-GitHub - [https://github.com/at-internship/at-university-ui][PlDb]
-Heroku - [https://at-university-ui.herokuapp.com/dashboard][PlDb]
+GitHub - [https://github.com/at-internship/at-university-ui]
+Heroku - [https://at-university-ui.herokuapp.com/dashboard]
 
 
 ## Getting Started
@@ -17,16 +17,16 @@ Heroku - [https://at-university-ui.herokuapp.com/dashboard][PlDb]
 
 | Technology | URL |
 | ------ | ------ |
-| Node JS v 13.12 | [https://nodejs.org/es/download/current][PlDb] |
-| Mongo DB Community Server v 4.2.5 | [https://www.mongodb.com/download-center/community][PlGh] |
-| Visual Studio Code v 1.48 | [https://code.visualstudio.com/docs/?dv=win][PlDb] |
-| Bootstrap v 4.4 | [https://getbootstrap.com/docs/4.4/getting-started/download][PlGh] |
-| Express v 4.17.1 | [https://www.npmjs.com/package/express][PlDb] |
-| Handlebars v 4.5.0 | [https://handlebarsjs.com/installation/#npm-or-yarn-recommended][PlGh] |
-| Heroku CLI | [https://devcenter.heroku.com/articles/heroku-cli][PlDb] |
-| Google Chrome JSON plugin | [https://chrome.google.com/webstore/detail/json-formatter][PlGh] |
-| Postman v 7.31.1 | [https://www.postman.com/downloads/][PlDb] |
-| Postman v 7.31.1 | [https://www.postman.com/downloads/][PlDb] |
+| Node JS v 13.12 | [https://nodejs.org/es/download/current] |
+| Mongo DB Community Server v 4.2.5 | [https://www.mongodb.com/download-center/community] |
+| Visual Studio Code v 1.48 | [https://code.visualstudio.com/docs/?dv=win] |
+| Bootstrap v 4.4 | [https://getbootstrap.com/docs/4.4/getting-started/download] |
+| Express v 4.17.1 | [https://www.npmjs.com/package/express] |
+| Handlebars v 4.5.0 | [https://handlebarsjs.com/installation/#npm-or-yarn-recommended] |
+| Heroku CLI | [https://devcenter.heroku.com/articles/heroku-cli] |
+| Google Chrome JSON plugin | [https://chrome.google.com/webstore/detail/json-formatter] |
+| Postman v 7.31.1 | [https://www.postman.com/downloads/] |
+| Postman v 7.31.1 | [https://www.postman.com/downloads/] |
 
 
 ### Plugins
