@@ -17,7 +17,7 @@ Heroku - [https://at-university-ui.herokuapp.com/dashboard]
 
 | Technology | URL |
 | ------ | ------ |
-| Node JS v 13.12 | [https://nodejs.org/es/download/current] |
+| Node JS v 13.12 | https://nodejs.org/es/download/current |
 | Mongo DB Community Server v 4.2.5 | [https://www.mongodb.com/download-center/community] |
 | Visual Studio Code v 1.48 | [https://code.visualstudio.com/docs/?dv=win] |
 | Bootstrap v 4.4 | [https://getbootstrap.com/docs/4.4/getting-started/download] |
@@ -71,15 +71,15 @@ Heroku - [https://at-university-ui.herokuapp.com/dashboard]
 
 | Mentor | Email |
 | ------ | ------ |
-| Raul Cabrera Aguilar | [raul.cabrera@agilethought.com][PlDb] |
-| Oscar Adolfo Sánchez Rosas | [oscar.sanchez@agilethought.com][PlGh] |
+| Raul Cabrera Aguilar | [raul.cabrera@agilethought.com] |
+| Oscar Adolfo Sánchez Rosas | [oscar.sanchez@agilethought.com] |
 
 
 | Interns-Devs | Email |
 | ------ | ------ |
-| Adrian Constandse Esteban | [adrian.constandse@agilethought.com][PlGd] |
-| Jose Ignacio Perez Luis | [jose.perezluis@agilethought.com][PlMe] |
-| Humberto Gonzalez Gonzalez | [humberto.gonzalez@agilethought.com][PlOd] |
+| Adrian Constandse Esteban | [adrian.constandse@agilethought.com] |
+| Jose Ignacio Perez Luis | [jose.perezluis@agilethought.com] |
+| Humberto Gonzalez Gonzalez | [humberto.gonzalez@agilethought.com] |
 
 
 ## Copyright / License
